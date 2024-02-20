@@ -43,8 +43,9 @@ const Expense = mongoose.model("express", ExpenseTracker);
 Expense.find().then((expenses) => console.log(expenses.length));
 
 //
-app.get("/", (req, res) => {
-  res.send("hi roshan ");
+app.get("/", async (req, res) => {
+  const data = await Expense.find();
+  res.json(data);
 });
 
 app.post("/saveExpense", (req, res) => {
