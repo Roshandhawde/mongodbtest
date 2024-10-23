@@ -55,7 +55,7 @@ app.post("/saveUser", bodyParser.json(), (req, res) => {
     .save()
     .then(() => {
       console.log("New Expense");
-      res.json({ message: "Expense saved" });
+      res.json({ code: 200, message: "User saved" });
     });
 });
 
