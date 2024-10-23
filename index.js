@@ -2,6 +2,7 @@ const { response } = require("express");
 const express = require("express");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const bodyParser = require("body-parser");
 
 const app = express();
 const port = 3111;
@@ -48,11 +49,14 @@ app.get("/", async (req, res) => {
   res.json(data);
 });
 
-app.post("/saveUser", (req, res) => {
+app.post("/saveUser", bodyParser.json(), (req, res) => {
   console.log("req.body==>", req.body);
   Expense(req.body)
     .save()
-    .then(() => console.log("New Expense"));
+    .then(() => {
+      console.log("New Expense");
+      res.json({ message: "Expense saved" });
+    });
 });
 
 // root file
