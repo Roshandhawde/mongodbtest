@@ -25,9 +25,9 @@ app.use(function (req, res, next) {
 
 const ExpenseTracker = new Schema(
   {
-    expName: { type: String, required: true, default: "" },
-    expAmount: { type: Number, required: true, default: 0 },
-    expDate: { type: Date, required: true, default: new Date() },
+    emailId: { type: String, required: true, default: "" },
+    PhoneNumbe: { type: Number, required: true, default: 0 },
+    // expDate: { type: Date, required: true, default: new Date() },
   },
   { timestamps: true } //timestampe 2 created on and updated on and unique id 16 car value
 );
@@ -48,7 +48,7 @@ app.get("/", async (req, res) => {
   res.json(data);
 });
 
-app.post("/saveExpense", (req, res) => {
+app.post("/saveUser", (req, res) => {
   console.log("req.body==>", req.body);
   Expense(req.body)
     .save()
