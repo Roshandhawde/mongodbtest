@@ -69,50 +69,50 @@ app.post("/saveUser", async (req, res) => {
   }
 });
 
-// Edit Expense
-app.put("/editExpense/:expId", async (req, res) => {
-  try {
-    const { expId } = req.params;
-    const { expAmount } = req.body;
+// // Edit Expense
+// app.put("/editExpense/:expId", async (req, res) => {
+//   try {
+//     const { expId } = req.params;
+//     const { expAmount } = req.body;
 
-    const updatedExpense = await Expense.findByIdAndUpdate(
-      expId,
-      { expAmount },
-      { new: true }
-    );
+//     const updatedExpense = await Expense.findByIdAndUpdate(
+//       expId,
+//       { expAmount },
+//       { new: true }
+//     );
 
-    if (!updatedExpense) {
-      return res.status(404).json({ code: 404, message: "Expense not found" });
-    }
+//     if (!updatedExpense) {
+//       return res.status(404).json({ code: 404, message: "Expense not found" });
+//     }
 
-    res.status(200).json({
-      code: 200,
-      message: "Expense updated successfully",
-      updatedExpense,
-    });
-  } catch (err) {
-    res.status(500).json({ code: 500, message: err.message });
-  }
-});
+//     res.status(200).json({
+//       code: 200,
+//       message: "Expense updated successfully",
+//       updatedExpense,
+//     });
+//   } catch (err) {
+//     res.status(500).json({ code: 500, message: err.message });
+//   }
+// });
 
 // Delete Expense
-app.delete("/deleteExpense/:expId", async (req, res) => {
-  try {
-    const { expId } = req.params;
+// app.delete("/deleteExpense/:expId", async (req, res) => {
+//   try {
+//     const { expId } = req.params;
 
-    const deletedExpense = await Expense.findByIdAndDelete(expId);
+//     const deletedExpense = await Expense.findByIdAndDelete(expId);
 
-    if (!deletedExpense) {
-      return res.status(404).json({ code: 404, message: "Expense not found" });
-    }
+//     if (!deletedExpense) {
+//       return res.status(404).json({ code: 404, message: "Expense not found" });
+//     }
 
-    res
-      .status(200)
-      .json({ code: 200, message: "Expense deleted successfully" });
-  } catch (err) {
-    res.status(500).json({ code: 500, message: err.message });
-  }
-});
+//     res
+//       .status(200)
+//       .json({ code: 200, message: "Expense deleted successfully" });
+//   } catch (err) {
+//     res.status(500).json({ code: 500, message: err.message });
+//   }
+// });
 
 // Start the server
 app.listen(port, () => {
