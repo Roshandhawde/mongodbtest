@@ -47,6 +47,7 @@ app.get("/", async (req, res) => {
 
 // Create New Expense
 app.post("/saveUser", async (req, res) => {
+  console.log(req?.body, "request");
   try {
     // Check if a user with the same emailId already exists
     const existingUser = await Expense.findOne({ emailId: req.body.emailId });
