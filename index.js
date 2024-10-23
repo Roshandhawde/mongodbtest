@@ -26,7 +26,7 @@ app.use(function (req, res, next) {
 const ExpenseTracker = new Schema(
   {
     emailId: { type: String, required: true, default: "" },
-    PhoneNumbe: { type: Number, required: true, default: 0 },
+    phoneNumber: { type: Number, required: true, default: 0 },
     // expDate: { type: Date, required: true, default: new Date() },
   },
   { timestamps: true } //timestampe 2 created on and updated on and unique id 16 car value
